@@ -52,15 +52,33 @@ for number in input.characters {
         
     }
     letterGroups
-    
+
 }
+//get length of input string
+input.characters.count
 
+// create an empty dictionary to store probabilitys
+var letterProbabilities = [Character: Float]()
 
+// loop over the list of letter counts
+for (letter, count) in letterGroups {
+    // add an entry to the probabilities dictionary
+    letterProbabilities[letter] = Float(count) / Float(input.characters.count) * 100
+}
+var total: Float = 0.0
+for (letter,probability) in letterProbabilities {
+    total = total + probability
+}
+// create Variable to store output string
+var outputString: String = ""
+for i in 1...30{
 
-
-
-
-
+    // generate the random value
+    let newRandomValue = arc4random_uniform(1000)
+    
+    let newRandomValueFloat = Float(newRandomValue) / 10
+    newRandomValueFloat
+}
 
 
 /*
