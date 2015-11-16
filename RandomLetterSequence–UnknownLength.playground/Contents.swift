@@ -71,16 +71,38 @@ for (letter,probability) in letterProbabilities {
 }
 // create Variable to store output string
 var outputString: String = ""
-for i in 1...30{
+for _ in 1...30{
 
     // generate the random value
     let newRandomValue = arc4random_uniform(1000)
-    
+    // turn random value into a float
     let newRandomValueFloat = Float(newRandomValue) / 10
-    newRandomValueFloat
+
+    //looping through dictionary
+    // adding probablilities to be the "upper value" such as with carloses algorithm
+    //checking when random value generated is less than the upper value of the probability range 
+    // for the current letter. when this happens add the current letter or word (depending on how far i have got) 
+    // to the sequence
+    var upperValue: Float = 0.0
+    // letter holds the letter and proabability holds the amount of loops done
+    for (letter, probability) in letterProbabilities {
+  upperValue += probability
+        
+        if (newRandomValueFloat) < (upperValue) {
+            
+            // add letter to output sequence
+            outputString += String(letter)
+            
+            // stop scanning for probabalilties
+            // will start with next itteration of out loop. aka 1-30 code
+            break
+        }
+    }
 }
-
-
+//is it working?
+outputString
+// verify has correct amount of characters 
+outputString.characters.count
 /*
 
 Write your algorithm ideas here:
